@@ -1,0 +1,33 @@
+<li class="w-[300px] flex justify-center">
+  <button type="button" (click)="showDetails(movie!)">
+    <img [src]="movie?.poster" class="h-[400px] mb-2" />
+    <div class="flex flex-col items-start">
+      <div class="flex gap-2">
+        <span *ngFor="let genre of movie?.genres" class="text-white">
+          {{ genre }}
+        </span>
+      </div>
+      <span class="text-red-600">{{ movie?.languages }}</span>
+      <span
+        *ngIf="movie?.tomatoes?.critic"
+        class="bg-cyan-600 text-white rounded-lg p-1 px-2"
+      >
+        {{ movie?.tomatoes?.critic?.rating }} / 10
+      </span>
+    </div>
+    <div *ngIf="isShowed" class="text-white text-left gap-y-2 flex flex-col">
+      <div>
+        {{ movie?.fullplot }}
+      </div>
+      <div>
+        Writers:
+        <span *ngFor="let writer of movie?.writers">
+          {{ writer }}
+        </span>
+      </div>
+      <div *ngFor="let award of movie?.awards">
+        Nominations: {{ award.text }}
+      </div>
+    </div>
+  </button>
+</li>

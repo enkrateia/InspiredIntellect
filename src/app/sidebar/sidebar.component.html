@@ -1,0 +1,9 @@
+<nav class="{{ !(isMenuOpen$ | async) ? 'hidden' : '' }}">
+  <ul>
+    <li *ngFor="let genre of genres" class="text-white">
+      <button (click)="handleGenreFilter(genre)">{{ genre }}</button>
+    </li>
+  </ul>
+
+  <button (click)="handleResetFilter()" class="text-white">Reset</button>
+</nav>
